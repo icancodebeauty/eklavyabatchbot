@@ -1,18 +1,21 @@
 /* Imports */
 const express = require('express');
-const cheerio = require('cheerio');
-const request = require('request');
+const { Deta } = require('deta');
+require("dotenv").config();
+/* Configuration */
 const router = express.Router();
+const deta = Deta(process.env.DETAKEY);
+const db = deta.Base('eklavya');
 /* `/today` Endpoint */
-router.get("/", (req, res) => {
-    request('https://www.eklavyabatch.com/p/test-schedule-of-eklavya-batch-for-mht.html', function (error, response, body) {
-        if (!error) {
-            const $ = cheerio.load(body)
-            $("tbody tr").each(function () {
-                console.log($(this).children("td").first().text().trim().replaceAll("-", " ").replace(" 22", " 2022"));
-            });
-        }
-    });
+router.get("/", async (req, res) => {
+  const date = new Date();
+  const day = date.getDate();
+  const today = await db.get(String(day));
+  if(today){
+    res.send(today)
+  } else {
+    res.send({key: "0"})
+  }
 });
 /* Export Router */
 module.exports = router;
