@@ -4,3 +4,6 @@ bot.launch()
 bot.command("start", require("./commands/start"))
 bot.command("today", require("./commands/today"))
 bot.command("links", require("./commands/links"))
+bot.command("mocktest", require("./commands/mocktest"))
+// Callback Query
+bot.on("callback_query", require("./callback/index"))
