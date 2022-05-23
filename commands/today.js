@@ -7,7 +7,7 @@ module.exports = async (ctx) => {
   let response = await fetch("https://eklavya.deta.dev/today");
   let data = await response.json();;
   if(data.key == "0"){
-    ctx.reply(`<b>No Mock Tests Today!!</b>`, html);
+    ctx.reply(`<b>No Mock Tests Today!!</b>`, mode);
   } else {
     ctx.reply(`<b>Today's Mock Test Details</b>
 • Subject : ${data.subject}
