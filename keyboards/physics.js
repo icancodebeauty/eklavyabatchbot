@@ -1,5 +1,5 @@
 module.exports = {
-  reply_markup: {
+  // reply_markup: {
     inline_keyboard: [
       [{ text: "Rotational Dynamics", callback_data: "p1", url:"https://eklavya.deta.dev/p1" }],
       // [{ text: "Mechanical Properties Of Fluids", callback_data: "p2", url:"https://eklavya.deta.dev/p2" }],
@@ -19,6 +19,6 @@ module.exports = {
       // [{ text: "Semiconductor Devices", callback_data: "p16", url:"https://eklavya.deta.dev/p16" }],
       [{ text: "« Back To Subjects", callback_data: "backk" }]
     ]
-  },
-  parse_mode: "HTML"
+  // },
+  // parse_mode: "HTML"
 }
